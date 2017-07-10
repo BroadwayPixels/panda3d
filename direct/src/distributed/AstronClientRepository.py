@@ -214,12 +214,11 @@ class AstronClientRepository(ClientRepositoryBase):
             fieldName, distObj.doId, args)
         self.send(dg)
 
-    # FIXME: The version string should default to a .prc variable.
-    def sendHello(self, version_string):
+    def sendHello(self):
         dg = PyDatagram()
         dg.add_uint16(CLIENT_HELLO)
         dg.add_uint32(self.get_dc_file().get_hash())
-        dg.add_string(version_string)
+        dg.add_string(base.config.GetString('server-version', 'no-version-set'))
         self.send(dg)
 
     def sendHeartbeat(self):
