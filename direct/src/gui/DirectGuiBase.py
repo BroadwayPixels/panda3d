@@ -1028,7 +1028,7 @@ class DirectGuiWidget(DirectGuiBase, NodePath):
             if __dev__:
                 guiObjectCollector.subLevel(1)
                 guiObjectCollector.flushLevel()
-                if hasattr(base, 'guiItems'):
+                if hasattr(__builtins__, 'base') and hasattr(base, 'guiItems'):
                     if self.guiId in base.guiItems:
                         del base.guiItems[self.guiId]
                     else:
