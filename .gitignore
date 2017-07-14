@@ -4,6 +4,9 @@
 /targetroot/
 /dstroot/
 
+# Mac garbage
+.DS_Store
+
 # Core dumps
 core
 core.*

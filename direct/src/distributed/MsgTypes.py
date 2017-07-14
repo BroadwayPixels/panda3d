@@ -144,24 +144,3 @@ MsgId2Names = invertDictLossless(MsgName2Id)
 
 # put msg names in module scope, assigned to msg value
 globals().update(MsgName2Id)
-
-# These messages are ignored when the client is headed to the quiet zone
-QUIET_ZONE_IGNORED_LIST = [
-
-    # We mustn't ignore updates, because some updates for localToon
-    # are always important.
-    #CLIENT_OBJECT_UPDATE_FIELD,
-
-    # These are now handled. If it is a create for a class that is in the
-    # uber zone, we should create it.
-    #CLIENT_CREATE_OBJECT_REQUIRED,
-    #CLIENT_CREATE_OBJECT_REQUIRED_OTHER,
-
-    ]
-
-# The following is a different set of numbers from above.
-# These are the sub-message types for CLIENT_LOGIN_2.
-CLIENT_LOGIN_2_GREEN = 1       # Disney's GoReg subscription token, not used.
-CLIENT_LOGIN_2_PLAY_TOKEN = 2  # VR Studio PlayToken.
-CLIENT_LOGIN_2_BLUE = 3        # The international GoReg token.
-CLIENT_LOGIN_3_DISL_TOKEN = 4  # SSL encoded blob from DISL system.
