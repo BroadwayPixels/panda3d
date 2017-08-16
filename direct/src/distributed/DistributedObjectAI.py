@@ -366,7 +366,7 @@ class DistributedObjectAI(DistributedObjectBase):
         if self.air:
             self.air.sendUpdateToChannel(self, channelId, fieldName, args)
 
-    def generateWithRequired(self, zoneId, optionalFields=[]):
+    def generateWithRequired(self, parentId, zoneId, optionalFields=[]):
         assert self.notify.debugStateCall(self)
         # have we already allocated a doId?
         if self.__preallocDoId:
@@ -375,7 +375,6 @@ class DistributedObjectAI(DistributedObjectBase):
                 self.doId, zoneId, optionalFields)
 
         # The repository is the one that really does the work
-        parentId = self.air.districtId
         self.air.generateWithRequired(self, parentId, zoneId, optionalFields)
         self.generate()
         self.announceGenerate()
