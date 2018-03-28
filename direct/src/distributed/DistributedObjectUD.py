@@ -295,7 +295,7 @@ class DistributedObjectUD(DistributedObjectBase):
         if self.air:
             self.air.sendUpdateToChannel(self, channelId, fieldName, args)
 
-    def generateWithRequired(self, zoneId, optionalFields=[]):
+    def generateWithRequired(self, parentId, zoneId, optionalFields=[]):
         assert self.notify.debugStateCall(self)
         # have we already allocated a doId?
         if self.__preallocDoId:
@@ -304,7 +304,6 @@ class DistributedObjectUD(DistributedObjectBase):
                                                   optionalFields)
 
         # The repository is the one that really does the work
-        parentId = self.air.districtId
         self.parentId = parentId
         self.zoneId = zoneId
         self.air.generateWithRequired(self, parentId, zoneId, optionalFields)
